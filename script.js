@@ -177,22 +177,22 @@ function process(update_delta, i, max) {
 function msg() {
   var d = new Date();
   var months = [
-    "Enero",
-    "Febrero",
-    "Marzo",
+    "January",
+    "February",
+    "March",
     "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
   var base_url = "https://wa.me/" + phone_num + "/?text=";
   var msg =
-    "*PEDIDO* - Fecha " +
+    "*OHOI* - Fecha " +
     d.getDate() +
     " " +
     months[d.getMonth()] +
@@ -213,7 +213,7 @@ function msg() {
     USD_with_symbol(document.getElementById("total-primary").value).format();
   msg +=
     "\r\n\r\n" +
-    "Tu pedido no está confirmado,\r\nespera una respuesta para la confirmación.";
+    "Thank you for your order!,\r\We appreciate wonderful customers like you.,\r\Our company's goal is to provide high-quality products.";
 
   // Add new text to message
   document.getElementById("btn_order").href =
