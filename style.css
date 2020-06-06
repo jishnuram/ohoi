@@ -1,10 +1,10 @@
 html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
-	margin: 0;
+	/* margin: 0; */
 	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font-weight: normal;
-	vertical-align: baseline;
+	/* vertical-align: baseline; */
 	background: transparent;
 }
 
@@ -138,7 +138,8 @@ html {
 }
 
 h3 {
-	font-size: 14px;
+	font-size: 18px;
+	font-weight:1000;
 	margin: 0;
 }
 
@@ -150,27 +151,28 @@ p {
 .container {}
 
 .item {
-	padding: 12px 25px 0px 25px;
-	display: flex;
-	align-items: center;
-	overflow: hidden;
+	padding: 12px 25px 80px 25px;
+	/* display: flex; */
+	/* align-items: center; */
+	/* overflow: hidden; */
 }
 
 .div-item-img {
-	min-width: 88px;
-	min-height: 88px;
+	min-width: 300px;
+	min-height: 300px;
 	display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .item-img {
-	max-width: 88px;
-    max-height: 88px;
-    border-radius: 10px;
-    width: auto;
-    height: auto;
-    margin: auto;
+	max-width: 300px;
+	min
+	/* max-height: 100px; */
+	border-radius: 10px;
+	width: auto;
+	height: auto;
+	margin: auto;
 	display: block;
 }
 
@@ -180,21 +182,27 @@ p {
 }
 
 .item-desc {
-	display: block;
-	flex: 1 0 0;
+	/* display: block; */
+	/*flex: 0 1 0;*/
+	/*align-items: center;*/
+	/* padding: 12px; */
+	margin: auto;
+	display: flex;
 	align-items: center;
-	padding: 12px;
+	justify-content: center;
+	/* display: block; */
 }
 
 .item-qtd {
 	align-items: center;
 	text-align: center;
 	clear: right;
+	padding-top: 20px;
 }
 
 .quant {
-	font-size: 14px;
-	width: 20px;
+	font-size: 18px;
+	width: 80px;
 	text-align: center;
 	background: white;
 	border: none;
@@ -227,12 +235,12 @@ p {
 }
 
 input.btn {
-	font-size: 16px;
+	font-size: 18px;
 	text-align: center;
 	background: white;
 	border: 1px lightgrey solid;
-	width: 25px;
-	height: 25px;
+	width: 50px;
+	height: 50px;
 	border-radius: 8px;
 	padding: 0px;
 	-webkit-appearance: none !important;
@@ -539,4 +547,6 @@ input.outofstock {
 
 
 /* Customization goes here */
+
+
 
