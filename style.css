@@ -1,0 +1,542 @@
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-weight: normal;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+main, article, aside, figure, footer, header, nav, section, details, summary {display: block;}
+
+/* Handle box-sizing while better addressing child elements:
+   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+
+/* Responsive images and other embedded objects */
+/* if you don't have full control over `img` tags (if you have to overcome attributes), consider adding height: auto */
+img,
+object,
+embed {max-width: 100%;}
+
+/*
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+	In fact, it *will* cause problems with Google Maps' controls at small size.
+	If this is the case for you, try uncommenting the following:
+#map img {
+		max-width: none;
+}
+*/
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {overflow-y: scroll;}
+
+/* we use a lot of ULs that aren't bulleted.
+	you'll have to restore the bullets within content,
+	which is fine because they're probably customized anyway */
+ul {list-style: none;}
+
+blockquote, q {quotes: none;}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {content: ''; content: none;}
+
+a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+
+del {text-decoration: line-through;}
+
+abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+
+/* tables still need cellspacing="0" in the markup */
+table {border-collapse: separate; border-spacing: 0;}
+th {font-weight: bold; vertical-align: bottom;}
+td {font-weight: normal; vertical-align: top;}
+
+hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+
+input, select {vertical-align: middle;}
+
+pre {
+    white-space: pre; /* CSS2 */
+    white-space: pre-wrap; /* CSS 2.1 */
+    white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+    word-wrap: break-word; /* IE */
+}
+
+input[type="radio"] {vertical-align: text-bottom;}
+input[type="checkbox"] {vertical-align: bottom;}
+.ie7 input[type="checkbox"] {vertical-align: baseline;}
+.ie6 input {vertical-align: text-bottom;}
+
+select, input, textarea {font: 99% sans-serif;}
+
+table {font-size: inherit; font: 100%;}
+
+small {font-size: 85%;}
+
+strong {font-weight: bold;}
+
+td, td img {vertical-align: top;}
+
+/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+sub, sup {font-size: 75%; line-height: 0; position: relative;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {cursor: pointer;}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {margin: 0;}
+
+/* make buttons play nice in IE */
+button,
+input[type=button] {width: auto; overflow: visible;}
+
+/* scale images in IE7 more attractively */
+.ie7 img {-ms-interpolation-mode: bicubic;}
+
+/* prevent BG image flicker upon hover
+   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+*/
+
+/* let's clear some floats */
+.clearfix:after { content: " "; display: block; clear: both; }
+
+/* CSS Reset ends */
+
+
+body {
+	margin: 0px;
+	background-color: #FBDE06;
+}
+
+html {
+	font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+	font-size: 14px;
+	margin: 0;
+}
+
+p {
+	font-size: 12px;
+	margin: 0;
+}
+
+.container {}
+
+.item {
+	padding: 12px 25px 0px 25px;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+
+.div-item-img {
+	min-width: 88px;
+	min-height: 88px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-img {
+	max-width: 88px;
+    max-height: 88px;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    margin: auto;
+	display: block;
+}
+
+.item-img-out {
+	filter: grayscale(1);
+	border-radius: 10px;
+}
+
+.item-desc {
+	display: block;
+	flex: 1 0 0;
+	align-items: center;
+	padding: 12px;
+}
+
+.item-qtd {
+	align-items: center;
+	text-align: center;
+	clear: right;
+}
+
+.quant {
+	font-size: 14px;
+	width: 20px;
+	text-align: center;
+	background: white;
+	border: none;
+	padding: 10px 0px;
+	color: #000;
+	-webkit-text-fill-color: #000;
+	opacity: 1;
+}
+
+.quant-out {
+	font-size: 14px;
+	width: 20px;
+	text-align: center;
+	background: white;
+	border: none;
+	padding: 10px 0px;
+	color: #555;
+	-webkit-text-fill-color: #555;
+	opacity: 1;
+}
+
+.max {
+	text-align: center;
+	background: white;
+	font-size: 14px;
+	color: black;
+	width: 25px;
+	border: none;
+	padding: 10px 0px;
+}
+
+input.btn {
+	font-size: 16px;
+	text-align: center;
+	background: white;
+	border: 1px lightgrey solid;
+	width: 25px;
+	height: 25px;
+	border-radius: 8px;
+	padding: 0px;
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	appearance: none !important;
+}
+
+.div_logo {
+	background-color: #FBDE06;
+	width: 100%;
+	margin: 0px;
+	padding: 20px 0px 10px 0px;
+	z-index: 1;
+	top: 0px;
+	overflow: hidden;
+}
+
+.div_itens {
+	width: 600px;
+	margin: 0px auto;
+	margin-bottom: 90px;
+	background-color: white;
+	border-radius: 30px;
+	z-index: -1;
+	left: 0px;
+	top: 0px;
+	padding-bottom: 25px;
+}
+
+.footer {
+	font-size: 16px;
+	height: 112px;
+	width: 600px;
+	position: fixed;
+	margin: 0px auto;
+	z-index: 2;
+	bottom: 0;
+	left: calc(50% - 300px);
+	background-color: white;
+	border-top: 1px solid #E8E8E8;
+	-webkit-box-shadow: 0px -1px 30px 0px rgba(170, 170, 170, 0.43);
+	-moz-box-shadow: 0px -1px 30px 0px rgba(170, 170, 170, 0.43);
+	box-shadow: 0px -1px 30px 0px rgba(170, 170, 170, 0.43);
+}
+
+.btn_enviar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	width: 90%;
+	height: 48px;
+	background-color: black;
+	color: white;
+	text-decoration: none;
+	margin-left: 5%;
+	margin-bottom: 24px;
+}
+
+.btn_enviar img {
+	height: 24px;
+}
+
+input.price {
+	border: none;
+	background: white;
+	width: 80px;
+	color: #000;
+	-webkit-text-fill-color: #000;
+	opacity: 1;
+	font-size: 12px;
+	float: left;
+}
+
+input.price-secondary {
+	border: none;
+	background: white;
+	width: 60px;
+	color: grey;
+	-webkit-text-fill-color: grey;
+	font-size: 12px;
+	opacity: 1;
+	float: left;
+}
+
+.price-out {
+	border: none;
+	background: white;
+	width: 30px;
+	color: #555;
+	-webkit-text-fill-color: #555;
+	opacity: 1;
+}
+
+#lista {
+	margin: 0px;
+	list-style: none;
+	padding: 0;
+	padding-top: 12px;
+}
+
+
+#txt {
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 5%;
+	float: left;
+}
+
+#total-primary {
+	display: block;
+	border: none;
+	width: 100px;
+	font-size: 16px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 5%;
+	float: right;
+	background: white;
+	text-align: right;
+	padding: 1px 0px;
+	color: #000;
+	-webkit-text-fill-color: #000;
+	opacity: 1;
+}
+
+#total-secondary {
+	display: inline;
+	border: none;
+	width: 100px;
+	font-size: 16px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 5%;
+	float: right;
+	background: white;
+	text-align: right;
+	padding: 1px 0px;
+	color: grey;
+	-webkit-text-fill-color: grey;
+	opacity: 1;
+	
+}
+
+input.outofstock {
+	color: #555;
+	-webkit-text-fill-color: #555;
+}
+
+.outofstock {
+	color: #555;
+}
+
+#btn_txt {
+	margin-left: 10px;
+}
+
+#logo {
+	width: 200px;
+	padding-left: 24px;
+}
+
+@media only screen and (max-width: 700px) and (min-width: 360px) {
+	body {
+		width: 100%;
+	}
+
+	#logo {
+		width: 50%;
+		height: 10%;
+		padding-left: 24px;
+	}
+
+	.div_itens {
+		margin: 0 auto;
+		margin-bottom: 95px;
+		width: 100%;
+		min-height: 100vh;
+	}
+
+	.footer {
+		width: 100%;
+		left: 0px;
+	}
+}
+
+@media only screen and (max-width: 359px) {
+	body {
+		width: 100%;
+	}
+
+	#logo {
+		width: 50%;
+		height: 10%;
+		padding-left: 24px;
+	}
+
+	.div_itens {
+		margin: 0 auto;
+		margin-bottom: 95px;
+		width: 100%;
+	}
+
+	.footer {
+		width: 100%;
+		left: 0px;
+	}
+
+	.btn {
+		font-size: 14px;
+		text-align: center;
+		background: white;
+		-webkit-background: white;
+		border: 1px lightgrey solid;
+		width: 20px;
+		height: 20px;
+		border-radius: 8px;
+	}
+
+	.item-desc {
+		padding: 2px;
+		padding-left: 10px;
+	}
+
+	.item {
+		padding: 12px 15px 0px 15px;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+	}
+
+	.div-item-img {
+		min-width: 78px;
+		min-height: 78px;
+	}
+	
+	.item-img {
+		max-width: 78px;
+		max-height: 78px;
+		border-radius: 10px;
+	}
+
+	.item-img-out {
+		width: 78px;
+		height: 78px;
+	}
+}
+
+.spinner {
+	margin: 50px auto 0;
+	width: 70px;
+	text-align: center;
+}
+
+.spinner>div {
+	width: 12px;
+	height: 12px;
+	background-color: #333;
+
+	border-radius: 100%;
+	display: inline-block;
+	-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+	animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+	-webkit-animation-delay: -0.32s;
+	animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+	-webkit-animation-delay: -0.16s;
+	animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+
+	0%,
+	80%,
+	100% {
+		-webkit-transform: scale(0)
+	}
+
+	40% {
+		-webkit-transform: scale(1.0)
+	}
+}
+
+@keyframes sk-bouncedelay {
+
+	0%,
+	80%,
+	100% {
+		-webkit-transform: scale(0);
+		transform: scale(0);
+	}
+
+	40% {
+		-webkit-transform: scale(1.0);
+		transform: scale(1.0);
+	}
+}
+
+
+/* Customization goes here */
+
