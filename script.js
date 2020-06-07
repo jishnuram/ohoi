@@ -140,7 +140,7 @@ function showInfo(data, tabletop) {
 
 function process(update_delta, i, max) {
   // Update Available Stock
-  var qty_available = parseInt(
+  var qty_available = parseFloat(
     document.getElementsByClassName("quant")[i].value
   );
   qty_available += update_delta;
