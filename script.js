@@ -138,7 +138,10 @@ function showInfo(data, tabletop) {
   document.getElementById("lista").innerHTML = parsed;
 }
 
-function process(update_delta, i, max) {
+function process(update_delta1, i, max) {
+  var update_delta = 0.5
+  if(update_delta1<0)
+    update_delta = -update_delta
   // Update Available Stock
   var qty_available = parseInt(
     document.getElementsByClassName("quant")[i].value
