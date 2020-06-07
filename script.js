@@ -96,7 +96,7 @@ function showInfo(data, tabletop) {
             precio +
             "' disabled='True'></div>";
           parsed +=
-            "<div class='item-qtd'><input type='button' class='btn' id='minus' value='-' onclick='process(-1," +
+            "<div class='item-qtd'><input type='button' class='btn' id='minus' value='-' onclick='process(-.5," +
             i +
             ", " +
             stock +
@@ -104,7 +104,7 @@ function showInfo(data, tabletop) {
           parsed +=
             "<input name='quant' class='quant' size='1' type='text' value='0' disabled='True' />";
           parsed +=
-            "<input type='button' class='btn' id='plus' value='+' onclick='process(1," +
+            "<input type='button' class='btn' id='plus' value='+' onclick='process(.5," +
             i +
             ", " +
             stock +
