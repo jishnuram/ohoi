@@ -159,14 +159,14 @@ p {
 
 .div-item-img {
 	min-width: 300px;
-	min-height: 300px;
+	min-height: 350px;
 	display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .item-img {
-	max-width: 300px;
+	max-width: 350px;
 	min
 	/* max-height: 100px; */
 	border-radius: 10px;
