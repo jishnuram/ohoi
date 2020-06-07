@@ -143,18 +143,17 @@ function process(update_delta, i, max) {
   var qty_available = parseFloat(
     document.getElementsByClassName("quant")[i].value
   );
-  if(qty_available ==0 ){
+  if(qty_available <= 1 && update_delta >0 ){
     qty_available += 0.5;
   }
-  else{
-    if(qty_available ==1 && update_delta < 0){
+  else if(qty_available <=1 && update_delta < 0){
       qty_available -= 0.5;
     }
     else{
        qty_available += update_delta;
     }
  
-  }
+  
   console.log("QTY Available after click: " + qty_available);
   if (qty_available < 0) {
     document.getElementsByClassName("quant")[i].value = 0;
