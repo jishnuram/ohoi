@@ -96,7 +96,7 @@ function showInfo(data, tabletop) {
             precio +
             "' disabled='True'></div>";
           parsed +=
-            "<div class='item-qtd'><input type='button' class='btn' id='minus' value='-' onclick='process(-.5," +
+            "<div class='item-qtd'><input type='button' class='btn' id='minus' value='-' onclick='process(-1," +
             i +
             ", " +
             stock +
@@ -104,7 +104,7 @@ function showInfo(data, tabletop) {
           parsed +=
             "<input name='quant' class='quant' size='1' type='text' value='0' disabled='True' />";
           parsed +=
-            "<input type='button' class='btn' id='plus' value='+' onclick='process(.5," +
+            "<input type='button' class='btn' id='plus' value='+' onclick='process(1," +
             i +
             ", " +
             stock +
@@ -143,7 +143,18 @@ function process(update_delta, i, max) {
   var qty_available = parseFloat(
     document.getElementsByClassName("quant")[i].value
   );
-  qty_available += update_delta;
+  if(qty_available ==0 ){
+    qty_available += 0.5;
+  }
+  else{
+    if(qty_available ==1 && update_delta < 0){
+      qty_available -= 0.5;
+    }
+    else{
+       qty_available += update_delta;
+    }
+ 
+  }
   console.log("QTY Available after click: " + qty_available);
   if (qty_available < 0) {
     document.getElementsByClassName("quant")[i].value = 0;
