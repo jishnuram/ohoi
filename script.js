@@ -6,6 +6,7 @@ var phone_num = "919904800578";
 const USD = (value) =>
   currency(value, {
     formatWithSymbol: false,
+    symbol: "₹",
     precision: 2,
   });
 const VEF = (value) =>
@@ -18,6 +19,7 @@ const VEF = (value) =>
 const USD_with_symbol = (value) =>
   currency(value, {
     formatWithSymbol: true,
+    symbol: "₹",
     precision: 2,
   });
 
