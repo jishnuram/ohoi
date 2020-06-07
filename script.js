@@ -192,7 +192,7 @@ function msg() {
   ];
   var base_url = "https://wa.me/" + phone_num + "/?text=";
   var msg =
-    "*OHOI* - Fecha " +
+    "*OHOi* Fisherman's pride" +
     d.getDate() +
     " " +
     months[d.getMonth()] +
