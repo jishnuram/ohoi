@@ -165,7 +165,7 @@ function process(update_delta, i, max) {
     console.log("Y:" + y + " Total:" + t);
     t =
       t +
-      parseInt(document.getElementsByClassName("quant")[y].value) *
+      parseFloat(document.getElementsByClassName("quant")[y].value) *
         USD_with_symbol(document.getElementsByClassName("price")[y].value)
           .value;
   }
