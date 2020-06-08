@@ -43,6 +43,7 @@ function init() {
 function validProduct(item) {
   if (
     item["Precio USD"] != "" &&
+    item["Precio Base"] != "" &&
     item.Marca != "" &&
     item.Imagen != "" &&
     item.Titulo != "" &&
@@ -60,7 +61,7 @@ function validProduct(item) {
 }
 
 function showInfo(data, tabletop) {
-  console.log(data.data);
+  console.log("data", data.data);
   $(".spinner").remove();
 
   var parsed = "";
@@ -70,13 +71,18 @@ function showInfo(data, tabletop) {
   var i = 0;
   $.each(data.data, function (y, item) {
     $.trim((item["Precio USD"] = item["Precio USD"]));
+    $.trim((item["Precio Base"] = item["Precio Base"]));
+
     $.trim((item["Unidades en stock"] = item["Unidades en stock"]));
     $.trim((item.Marca = item.Marca));
     $.trim((item.Titulo = item.Titulo));
     $.trim((item.Descripcion = item.Descripcion));
     if (validProduct(item)) {
+      console.log("myitems", item)
       stock = item["Unidades en stock"];
       precio = USD_with_symbol(item["Precio USD"]).format();
+      halfPrice = item["Precio Base"]
+
       if ($.isNumeric(parseInt(stock))) {
         //if(isNumberDot(precio) && $.isNumeric(parseInt(stock))){
         parsed += "<div class='item'><div class='div-item-img'>";
@@ -90,6 +96,15 @@ function showInfo(data, tabletop) {
             item.Titulo +
             "</h3>";
           parsed += "<p>" + item.Descripcion + "</p>";
+
+          parsed +=
+            "<input style='height:0px;width:0px;visibility: hidden' type='text' name=" +
+            halfPrice +
+            " class='halfPrice' value='" +
+            halfPrice +
+            "' disabled='True'></input>";
+
+
           parsed +=
             "<input type='text' name=" +
             item.Titulo +
@@ -101,6 +116,8 @@ function showInfo(data, tabletop) {
             i +
             ", " +
             stock +
+            ", " +
+            item["Precio Base"] +
             ")' />";
           parsed +=
             "<input name='quant' class='quant' size='1' type='text' value='0' disabled='True' />";
@@ -109,6 +126,8 @@ function showInfo(data, tabletop) {
             i +
             ", " +
             stock +
+            ", " +
+            item["Precio Base"] +
             ")'><br>";
           parsed += "</div></div>";
         } else {
@@ -139,23 +158,23 @@ function showInfo(data, tabletop) {
   document.getElementById("lista").innerHTML = parsed;
 }
 
-function process(update_delta, i, max) {
+total = 0
+function process(update_delta, i, max, halfKgRate) {
   // Update Available Stock
   var qty_available = parseFloat(
     document.getElementsByClassName("quant")[i].value
   );
-  if(qty_available <= 0.5 && update_delta >0 ){
+  if (qty_available <= 0.5 && update_delta > 0) {
     qty_available += 0.5;
   }
-  else if(qty_available <=1 && update_delta < 0){
-      qty_available -= 0.5;
-    }
-    else{
-       qty_available += update_delta;
-    }
- 
-  
-  console.log("QTY Available after click: " + qty_available);
+  else if (qty_available <= 1 && update_delta < 0) {
+    qty_available -= 0.5;
+  }
+  else {
+    qty_available += update_delta;
+  }
+
+
   if (qty_available < 0) {
     document.getElementsByClassName("quant")[i].value = 0;
   } else if (qty_available > max) {
@@ -164,27 +183,40 @@ function process(update_delta, i, max) {
     document.getElementsByClassName("quant")[i].value = qty_available;
   }
 
-  // Recalculate Total Cart Amount
+
   var t = 0;
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
-    console.log(
-      "VEF Amount:" +
-        USD_with_symbol(document.getElementsByClassName("price")[y].value) +
-        " - Pre-parsing: " +
-        document.getElementsByClassName("price")[y].value
-    );
-    console.log("Y:" + y + " Total:" + t);
-    t =
-      t +
-      parseFloat(document.getElementsByClassName("quant")[y].value) *
+    var quantity = document.getElementsByClassName("quant")[y].value
+    if (quantity == 0.5) {
+      t = t +
+        1 *
+        USD_with_symbol(document.getElementsByClassName("halfPrice")[y].value)
+          .value;
+    }
+    else {
+      t = t +
+        parseFloat(document.getElementsByClassName("quant")[y].value) *
         USD_with_symbol(document.getElementsByClassName("price")[y].value)
           .value;
+    }
+
+    // t =t +
+    //   parseFloat(document.getElementsByClassName("quant")[y].value) *
+    //   USD_with_symbol(document.getElementsByClassName("price")[y].value)
+    //     .value;
   }
+
+  // Recalculate Total Cart Amount
 
   // Add price to nav bar
   document.getElementById("total-primary").value = USD_with_symbol(t).format();
   // Rewrite message
   msg();
+
+
+
+
+
 }
 
 function msg() {
@@ -234,3 +266,4 @@ function msg() {
 }
 
 window.addEventListener("DOMContentLoaded", init);
+
