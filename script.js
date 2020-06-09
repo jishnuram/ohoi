@@ -248,7 +248,7 @@ function msg() {
       msg +=
         "\r\n" +
         document.getElementsByClassName("quant")[y].value +
-        "x " +
+        "Kg " +
         document.getElementsByClassName("desc")[y].textContent;
     }
   }
