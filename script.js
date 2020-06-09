@@ -244,7 +244,7 @@ function msg() {
     " " +
     d.getFullYear();
   for (var y = 0; y < document.getElementsByClassName("quant").length; y++) {
-    if (parseInt(document.getElementsByClassName("quant")[y].value) > 0) {
+    if (parseFloat(document.getElementsByClassName("quant")[y].value) > 0) {
       msg +=
         "\r\n" +
         document.getElementsByClassName("quant")[y].value +
