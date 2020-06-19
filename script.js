@@ -2,7 +2,7 @@ var publicSpreadsheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRSF
 //var publicSpreadsheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRSF-GoOfeaxau_wLpyUDoNFuhjnFjn0b1K1Y7T9GrmWoShznACMhW5zPJNZnFwY54dDkeGsaKOqtXY/pub?gid=1452773944&single=true&output=csv";
 //var publicSpreadsheetUrl = "product.csv";
 
-var phone_num = "919904800578";
+var phone_num = "918129999129";
 
 //  Set up Currency.js
 const USD = (value) =>
